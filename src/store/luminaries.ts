@@ -8,7 +8,7 @@ export const useLuminariesStore = defineStore('app', {
     lumniaries: [] as Luminary[],
   }),
   actions: {
-    fetchLumniaries() {
+    fetchLuminaries() {
       fetch('https://api.le-systeme-solaire.net/rest/bodies/')
         .then((response) => response.json())
         .then((data) => {
