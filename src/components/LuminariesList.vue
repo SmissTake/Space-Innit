@@ -13,6 +13,9 @@
       >
         <LuminaryCard :luminary="luminary" />
       </v-col>
+      <v-row justify="center">
+        <v-progress-circular indeterminate></v-progress-circular>
+      </v-row>
     </v-row>
   </div>
 </template>
