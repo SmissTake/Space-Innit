@@ -6,6 +6,7 @@ import Luminary from '@/models/luminary'
 export const useLuminariesStore = defineStore('app', {
   state: () => ({
     luminaries: [] as Luminary[],
+    isLoading: false
   }),
   getters: {
     getLuminaryById: (state) => (id: string) => {
@@ -17,12 +18,14 @@ export const useLuminariesStore = defineStore('app', {
   },
   actions: {
     fetchLuminaries() {
+      this.isLoading = true
       fetch('https://api.le-systeme-solaire.net/rest/bodies/')
         .then((response) => response.json())
         .then((data) => {
           data.bodies.forEach((luminary: Luminary) => {
             this.addLuminary(luminary)
           })
+          this.isLoading = false
         })
     },
     addLuminary(luminary: Luminary) {
