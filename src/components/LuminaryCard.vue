@@ -9,26 +9,33 @@
       <p>Aphelion: {{ luminary.aphelion }}</p>
     </v-card-text>
     <v-card-actions>
-      <v-btn color="primary" @click="$emit('view-details', luminary)">
+      <v-btn color="primary" @click="showDetails = true" >
         View Details
       </v-btn>
     </v-card-actions>
+    <LuminaryDialog :luminary="luminary" v-model="showDetails" />
   </v-card>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
 import Luminary from '@/models/luminary'
+import LuminaryDialog from './LuminaryDialog.vue';
 
 export default defineComponent({
-  name: 'LuminaryCard',
-  props: {
-    luminary: {
-      type: Object as () => Luminary,
-      required: true,
+    name: "LuminaryCard",
+    props: {
+        luminary: {
+            type: Object as () => Luminary,
+            required: true,
+        },
     },
-  },
-  computed: {
-  },
+    computed: {},
+    data() {
+        return {
+            showDetails: false,
+        };
+    },
+    components: { LuminaryDialog }
 })
 </script>
