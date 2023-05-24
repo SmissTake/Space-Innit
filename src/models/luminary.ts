@@ -1,4 +1,4 @@
-interface Lumniary {
+export default interface Luminary {
   id: string;
   name: string;
   englishName: string;
@@ -42,5 +42,3 @@ interface Lumniary {
   bodyType: string;
   rel: string;
 }
-
-export default Lumniary;

@@ -1,6 +1,9 @@
 // Composables
 import { createRouter, createWebHistory } from 'vue-router'
 import { useLuminariesStore } from '@/store/luminaries'
+import { useUsersStore } from '@/store/users'
+// Types
+import User from '@/models/user'
 
 const routes = [
   {
@@ -27,6 +30,23 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
+})
+
+router.beforeEach((to) => {
+  const luminariesStore = useLuminariesStore()
+  if(luminariesStore.luminaries.length === 0) {
+    luminariesStore.fetchLuminaries()
+  }
+
+  const userStore = useUsersStore()
+  const user:User = {
+    id: "1",
+    name: 'John Doe',
+    email: 'johndoe@mail.com',
+    favoriteLuminaries: [],
+  }
+  userStore.setUser(user);
+  return;
 })
 
 export default router
