@@ -12,6 +12,7 @@
       <v-btn color="primary" @click="showDetails = true" >
         View Details
       </v-btn>
+      <LikeButton :luminary="luminary.id" />
     </v-card-actions>
     <LuminaryDialog :luminary="luminary" v-model="showDetails" />
   </v-card>
@@ -21,6 +22,7 @@
 import { defineComponent } from 'vue'
 import Luminary from '@/models/luminary'
 import LuminaryDialog from './LuminaryDialog.vue';
+import LikeButton from './LikeButton.vue';
 
 export default defineComponent({
     name: "LuminaryCard",
@@ -36,6 +38,9 @@ export default defineComponent({
             showDetails: false,
         };
     },
-    components: { LuminaryDialog }
+    components: { 
+      LuminaryDialog,
+      LikeButton
+    }
 })
 </script>
