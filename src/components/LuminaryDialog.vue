@@ -5,168 +5,166 @@
       <v-card-text>
         <v-list>
           <v-list-item>
-            <v-list-item-content>ID:</v-list-item-content>
-            <v-list-item-content>{{ luminary.id }}</v-list-item-content>
+            <v-list-item-title>ID:</v-list-item-title>
+            <v-list-item-subtitle>{{ luminary.id }}</v-list-item-subtitle>
           </v-list-item>
           <v-list-item>
-            <v-list-item-content>English Name:</v-list-item-content>
-            <v-list-item-content>{{
+            <v-list-item-title>English Name:</v-list-item-title>
+            <v-list-item-subtitle>{{
               luminary.englishName
-            }}</v-list-item-content>
+            }}</v-list-item-subtitle>
           </v-list-item>
           <v-list-item>
-            <v-list-item-content>Is Planet:</v-list-item-content>
-            <v-list-item-content>{{ luminary.isPlanet }}</v-list-item-content>
+            <v-list-item-title>Is Planet:</v-list-item-title>
+            <v-list-item-subtitle>{{ luminary.isPlanet }}</v-list-item-subtitle>
           </v-list-item>
           <v-list-item>
-            <v-list-item-content>Semimajor Axis:</v-list-item-content>
-            <v-list-item-content>{{
+            <v-list-item-title>Semimajor Axis:</v-list-item-title>
+            <v-list-item-subtitle>{{
               luminary.semimajorAxis
-            }}</v-list-item-content>
+            }}</v-list-item-subtitle>
           </v-list-item>
           <v-list-item>
-            <v-list-item-content>Perihelion:</v-list-item-content>
-            <v-list-item-content>{{ luminary.perihelion }}</v-list-item-content>
+            <v-list-item-title>Perihelion:</v-list-item-title>
+            <v-list-item-subtitle>{{ luminary.perihelion }}</v-list-item-subtitle>
           </v-list-item>
           <v-list-item>
-            <v-list-item-content>Aphelion:</v-list-item-content>
-            <v-list-item-content>{{ luminary.aphelion }}</v-list-item-content>
+            <v-list-item-title>Aphelion:</v-list-item-title>
+            <v-list-item-subtitle>{{ luminary.aphelion }}</v-list-item-subtitle>
           </v-list-item>
           <v-list-item>
-            <v-list-item-content>Eccentricity:</v-list-item-content>
-            <v-list-item-content>{{
+            <v-list-item-title>Eccentricity:</v-list-item-title>
+            <v-list-item-subtitle>{{
               luminary.eccentricity
-            }}</v-list-item-content>
+            }}</v-list-item-subtitle>
           </v-list-item>
           <v-list-item>
-            <v-list-item-content>Inclination:</v-list-item-content>
-            <v-list-item-content>{{
+            <v-list-item-title>Inclination:</v-list-item-title>
+            <v-list-item-subtitle>{{
               luminary.inclination
-            }}</v-list-item-content>
+            }}</v-list-item-subtitle>
           </v-list-item>
           <v-list-item>
-            <v-list-item-content>Mass:</v-list-item-content>
-            <v-list-item-content
+            <v-list-item-title>Mass:</v-list-item-title>
+            <v-list-item-subtitle
               >{{ luminary.mass.massValue }} x 10^{{
                 luminary.mass.massExponent
-              }}</v-list-item-content
+              }}</v-list-item-subtitle
             >
           </v-list-item>
           <v-list-item>
-            <v-list-item-content>Volume:</v-list-item-content>
-            <v-list-item-content
+            <v-list-item-title>Volume:</v-list-item-title>
+            <v-list-item-subtitle
               >{{ luminary.vol.volValue }} x 10^{{
                 luminary.vol.volExponent
-              }}</v-list-item-content
+              }}</v-list-item-subtitle
             >
           </v-list-item>
           <v-list-item>
-            <v-list-item-content>Density:</v-list-item-content>
-            <v-list-item-content>{{ luminary.density }}</v-list-item-content>
+            <v-list-item-title>Density:</v-list-item-title>
+            <v-list-item-subtitle>{{ luminary.density }}</v-list-item-subtitle>
           </v-list-item>
           <v-list-item>
-            <v-list-item-content>Gravity:</v-list-item-content>
-            <v-list-item-content>{{ luminary.gravity }}</v-list-item-content>
+            <v-list-item-title>Gravity:</v-list-item-title>
+            <v-list-item-subtitle>{{ luminary.gravity }}</v-list-item-subtitle>
           </v-list-item>
           <v-list-item>
-            <v-list-item-content>Escape Velocity:</v-list-item-content>
-            <v-list-item-content>{{ luminary.escape }}</v-list-item-content>
+            <v-list-item-title>Escape Velocity:</v-list-item-title>
+            <v-list-item-subtitle>{{ luminary.escape }}</v-list-item-subtitle>
           </v-list-item>
           <v-list-item>
-            <v-list-item-content>Mean Radius:</v-list-item-content>
-            <v-list-item-content>{{ luminary.meanRadius }}</v-list-item-content>
+            <v-list-item-title>Mean Radius:</v-list-item-title>
+            <v-list-item-subtitle>{{ luminary.meanRadius }}</v-list-item-subtitle>
           </v-list-item>
           <v-list-item>
-            <v-list-item-content>Equatorial Radius:</v-list-item-content>
-            <v-list-item-content>{{ luminary.equaRadius }}</v-list-item-content>
+            <v-list-item-title>Equatorial Radius:</v-list-item-title>
+            <v-list-item-subtitle>{{ luminary.equaRadius }}</v-list-item-subtitle>
           </v-list-item>
           <v-list-item>
-            <v-list-item-content>Polar Radius:</v-list-item-content>
-            <v-list-item-content>{{
+            <v-list-item-title>Polar Radius:</v-list-item-title>
+            <v-list-item-subtitle>{{
               luminary.polarRadius
-            }}</v-list-item-content>
+            }}</v-list-item-subtitle>
           </v-list-item>
           <v-list-item>
-            <v-list-item-content>Flattening:</v-list-item-content>
-            <v-list-item-content>{{ luminary.flattening }}</v-list-item-content>
+            <v-list-item-title>Flattening:</v-list-item-title>
+            <v-list-item-subtitle>{{ luminary.flattening }}</v-list-item-subtitle>
           </v-list-item>
           <v-list-item>
-            <v-list-item-content>Dimension:</v-list-item-content>
-            <v-list-item-content>{{ luminary.dimension }}</v-list-item-content>
+            <v-list-item-title>Dimension:</v-list-item-title>
+            <v-list-item-subtitle>{{ luminary.dimension }}</v-list-item-subtitle>
           </v-list-item>
           <v-list-item>
-            <v-list-item-content>Sidereal Orbit:</v-list-item-content>
-            <v-list-item-content>{{
+            <v-list-item-title>Sidereal Orbit:</v-list-item-title>
+            <v-list-item-subtitle>{{
               luminary.sideralOrbit
-            }}</v-list-item-content>
+            }}</v-list-item-subtitle>
           </v-list-item>
           <v-list-item>
-            <v-list-item-content>Sidereal Rotation:</v-list-item-content>
-            <v-list-item-content>{{
+            <v-list-item-title>Sidereal Rotation:</v-list-item-title>
+            <v-list-item-subtitle>{{
               luminary.sideralRotation
-            }}</v-list-item-content>
+            }}</v-list-item-subtitle>
           </v-list-item>
           <v-list-item>
-            <v-list-item-content>Around Planet:</v-list-item-content>
-            <v-list-item-content
+            <v-list-item-title>Around Planet:</v-list-item-title>
+            <v-list-item-subtitle
               >{{ luminary.aroundPlanet.planet }} ({{
                 luminary.aroundPlanet.rel
-              }})</v-list-item-content
+              }})</v-list-item-subtitle
             >
           </v-list-item>
           <v-list-item>
-            <v-list-item-content>Discovered By:</v-list-item-content>
-            <v-list-item-content>{{
+            <v-list-item-title>Discovered By:</v-list-item-title>
+            <v-list-item-subtitle>{{
               luminary.discoveredBy
-            }}</v-list-item-content>
+            }}</v-list-item-subtitle>
           </v-list-item>
           <v-list-item>
-            <v-list-item-content>Discovery Date:</v-list-item-content>
-            <v-list-item-content>{{
+            <v-list-item-title>Discovery Date:</v-list-item-title>
+            <v-list-item-subtitle>{{
               luminary.discoveryDate
-            }}</v-list-item-content>
+            }}</v-list-item-subtitle>
           </v-list-item>
           <v-list-item>
-            <v-list-item-content>Alternative Name:</v-list-item-content>
-            <v-list-item-content>{{
+            <v-list-item-title>Alternative Name:</v-list-item-title>
+            <v-list-item-subtitle>{{
               luminary.alternativeName
-            }}</v-list-item-content>
+            }}</v-list-item-subtitle>
           </v-list-item>
           <v-list-item>
-            <v-list-item-content>Axial Tilt:</v-list-item-content>
-            <v-list-item-content>{{ luminary.axialTilt }}</v-list-item-content>
+            <v-list-item-title>Axial Tilt:</v-list-item-title>
+            <v-list-item-subtitle>{{ luminary.axialTilt }}</v-list-item-subtitle>
           </v-list-item>
           <v-list-item>
-            <v-list-item-content>Average Temperature:</v-list-item-content>
-            <v-list-item-content>{{ luminary.avgTemp }}</v-list-item-content>
+            <v-list-item-title>Average Temperature:</v-list-item-title>
+            <v-list-item-subtitle>{{ luminary.avgTemp }}</v-list-item-subtitle>
           </v-list-item>
           <v-list-item>
-            <v-list-item-content>Main Anomaly:</v-list-item-content>
-            <v-list-item-content>{{
+            <v-list-item-title>Main Anomaly:</v-list-item-title>
+            <v-list-item-subtitle>{{
               luminary.mainAnomaly
-            }}</v-list-item-content>
+            }}</v-list-item-subtitle>
           </v-list-item>
           <v-list-item>
-            <v-list-item-content>Argument of Periapsis:</v-list-item-content>
-            <v-list-item-content>{{
+            <v-list-item-title>Argument of Periapsis:</v-list-item-title>
+            <v-list-item-subtitle>{{
               luminary.argPeriapsis
-            }}</v-list-item-content>
+            }}</v-list-item-subtitle>
           </v-list-item>
           <v-list-item>
-            <v-list-item-content
-              >Longitude of Ascending Node:</v-list-item-content
-            >
-            <v-list-item-content>{{
+            <v-list-item-title>Longitude of Ascending Node:</v-list-item-title>
+            <v-list-item-subtitle>{{
               luminary.longAscNode
-            }}</v-list-item-content>
+            }}</v-list-item-subtitle>
           </v-list-item>
           <v-list-item>
-            <v-list-item-content>Body Type:</v-list-item-content>
-            <v-list-item-content>{{ luminary.bodyType }}</v-list-item-content>
+            <v-list-item-title>Body Type:</v-list-item-title>
+            <v-list-item-subtitle>{{ luminary.bodyType }}</v-list-item-subtitle>
           </v-list-item>
           <v-list-item>
-            <v-list-item-content>Rel:</v-list-item-content>
-            <v-list-item-content>{{ luminary.rel }}</v-list-item-content>
+            <v-list-item-title>Rel:</v-list-item-title>
+            <v-list-item-subtitle>{{ luminary.rel }}</v-list-item-subtitle>
           </v-list-item>
         </v-list>
       </v-card-text>
