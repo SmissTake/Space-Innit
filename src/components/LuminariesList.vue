@@ -28,11 +28,39 @@ export default defineComponent({
   data() {
     return {
       luminaries: [] as Luminary[],
+      page: 1,
+      pageSize: 20,
+      isLoading: false,
     };
   },
   async created() {
     const store = useLuminariesStore();
-    this.luminaries = store.luminaries;
+    this.luminaries = store.luminaries.slice(0, this.pageSize);;
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  beforeUnmount() {
+    window.removeEventListener("scroll", this.handleScroll);
+  },
+  methods: {
+    handleScroll() {
+      const scrollHeight = document.documentElement.scrollHeight;
+      const scrollTop = document.documentElement.scrollTop;
+      const clientHeight = document.documentElement.clientHeight;
+      const bottom = scrollHeight - scrollTop - clientHeight;
+      if (bottom <= 0 && !this.isLoading) {
+        this.loadMore();
+      }
+    },
+    async loadMore() {
+      this.isLoading = true;
+      this.page++;
+      const store = useLuminariesStore();
+      const start = (this.page - 1) * this.pageSize;
+      const end = start + this.pageSize;
+      const luminaries = store.luminaries.slice(start, end);
+      this.luminaries = [...this.luminaries, ...luminaries];
+      this.isLoading = false;
+    },
   },
   components: { LuminaryCard },
 });
