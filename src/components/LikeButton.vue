@@ -8,6 +8,7 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
 import { useUsersStore } from '@/store/users'
+import { is } from '@babel/types'
 
 const usersStore = useUsersStore()
 
@@ -17,11 +18,15 @@ export default defineComponent({
     luminaryId: {
       type: String,
       required: true,
+    },
+    isLiked: {
+      type: Boolean,
+      required: true,
     }
   },
-  setup() {
-    const liked = ref(false)
-
+  setup(props) {
+    // const liked is value of initial isLiked prop
+    const liked = ref(props.isLiked)
     return {
       liked,
     }

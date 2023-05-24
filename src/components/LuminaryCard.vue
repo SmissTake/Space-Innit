@@ -12,7 +12,7 @@
       <v-btn color="primary" @click="showDetails = true" >
         View Details
       </v-btn>
-      <LikeButton :luminaryId="luminary.id" />
+      <LikeButton :luminaryId="luminary.id" :isLiked="isLuminariesLiked()"/>
     </v-card-actions>
     <LuminaryDialog :luminary="luminary" v-model="showDetails" />
   </v-card>
@@ -23,6 +23,10 @@ import { defineComponent } from 'vue'
 import Luminary from '@/models/luminary'
 import LuminaryDialog from './LuminaryDialog.vue';
 import LikeButton from './LikeButton.vue';
+import { useUsersStore } from '@/store/users';
+
+const usersStore = useUsersStore();
+const user = usersStore.user;
 
 export default defineComponent({
     name: "LuminaryCard",
@@ -32,7 +36,16 @@ export default defineComponent({
             required: true,
         },
     },
-    computed: {},
+    methods: {
+      isLuminariesLiked() {
+        if(user.favoriteLuminaries && user.favoriteLuminaries.includes(this.luminary.id)) {
+          return true;
+        }
+        else {
+          return false;
+        }
+      }
+    },
     data() {
         return {
             showDetails: false,
