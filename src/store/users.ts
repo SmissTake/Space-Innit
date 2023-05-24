@@ -15,6 +15,11 @@ export const useUsersStore = defineStore('users', {
   actions: {
     setUser(user: User) {
       this.user = user
-    }
+    },
+    setFavorite(luminaryId: string) {
+      if (this.user.favoriteLuminaries && !this.user.favoriteLuminaries.includes(luminaryId)) {
+        this.user.favoriteLuminaries.push(luminaryId);
+      }
+    },
   }
 })

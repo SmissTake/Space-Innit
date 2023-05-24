@@ -12,7 +12,7 @@
       <v-btn color="primary" @click="showDetails = true" >
         View Details
       </v-btn>
-      <LikeButton :luminary="luminary.id" />
+      <LikeButton :luminaryId="luminary.id" />
     </v-card-actions>
     <LuminaryDialog :luminary="luminary" v-model="showDetails" />
   </v-card>

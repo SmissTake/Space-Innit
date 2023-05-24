@@ -7,20 +7,33 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
+import { useUsersStore } from '@/store/users'
+
+const usersStore = useUsersStore()
 
 export default defineComponent({
   name: 'LikeButton',
+  props: {
+    luminaryId: {
+      type: String,
+      required: true,
+    }
+  },
   setup() {
     const liked = ref(false)
 
-    const like = () => {
-      liked.value = !liked.value
-    }
-
     return {
       liked,
-      like,
     }
   },
+  methods: {
+    like() {
+      this.liked = !this.liked
+      this.favorite()
+    },
+    favorite() {
+      usersStore.setFavorite(this.luminaryId)
+    }
+  }
 })
 </script>
