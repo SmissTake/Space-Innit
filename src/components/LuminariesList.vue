@@ -13,7 +13,7 @@
       >
         <LuminaryCard :luminary="luminary" />
       </v-col>
-      <v-row justify="center">
+      <v-row justify="center" v-if="isLoading">
         <v-progress-circular indeterminate></v-progress-circular>
       </v-row>
     </v-row>
@@ -30,19 +30,35 @@ export default defineComponent({
   name: "LuminariesList",
   data() {
     return {
-      luminaries: [] as Luminary[],
       page: 1,
       pageSize: 20,
       isLoading: false,
+      luminaries: [] as Luminary[],
     };
   },
+  props: {
+    luminariesSet: {
+      type: Array as () => Luminary[],
+      required: true,
+    },
+    pagination: {
+      type: Boolean,
+      default: true,
+    },
+  },
   async created() {
-    const store = useLuminariesStore();
-    this.luminaries = store.luminaries.slice(0, this.pageSize);;
-    window.addEventListener("scroll", this.handleScroll);
+    if (this.pagination) {
+      this.luminaries = this.luminariesSet.slice(0, this.pageSize);
+      window.addEventListener("scroll", this.handleScroll);
+    }
+    else {
+      this.luminaries = this.luminariesSet;
+    }
   },
   beforeUnmount() {
-    window.removeEventListener("scroll", this.handleScroll);
+    if (this.pagination){
+      window.removeEventListener("scroll", this.handleScroll);
+    }
   },
   methods: {
     handleScroll() {

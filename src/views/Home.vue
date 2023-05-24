@@ -1,8 +1,6 @@
 <template>
   <div>
-    <v-progress-linear v-if="isLoading" indeterminate :height="7"></v-progress-linear>
-
-    <LuminariesList v-else/>
+    <LuminariesList :luminaries-set="luminaries"/>
   </div>
 </template>
 
@@ -10,6 +8,7 @@
 import { defineComponent, computed } from 'vue'
 import LuminariesList from '@/components/LuminariesList.vue'
 import { useLuminariesStore } from "@/store/luminaries";
+import Luminary from '@/models/luminary';
 
 const store = useLuminariesStore();
 
@@ -21,7 +20,12 @@ export default defineComponent({
   data() {
     return {
       isLoading: store.$state.isLoading,
+      luminaries: [] as Luminary[],
     }
+  },
+  async created() {
+    const store = useLuminariesStore();
+    this.luminaries = store.luminaries;
   },
 })
 </script>

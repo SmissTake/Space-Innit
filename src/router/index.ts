@@ -25,6 +25,17 @@ const routes = [
       },
     ],
   },
+  {
+    path: '/profile',
+    name: 'Profile',
+    component: () => import('@/layouts/default/Default.vue'),
+    children: [
+      {
+        path: '',
+        component: () => import(/* webpackChunkName: "profile" */ '@/views/Profile.vue'),
+      },
+    ],
+  }
 ]
 
 const router = createRouter({
@@ -39,14 +50,17 @@ router.beforeEach((to) => {
   }
 
   const userStore = useUsersStore()
-  const user:User = {
-    id: "1",
-    name: 'John Doe',
-    email: 'johndoe@mail.com',
-    favoriteLuminaries: [],
+  // if user store in store is empty object
+  if(!userStore.user.id) {
+    const user:User = {
+      id: "1",
+      name: 'John Doe',
+      email: 'johndoe@mail.com',
+      favoriteLuminaries: [],
+    }
+    userStore.setUser(user);
   }
-  userStore.setUser(user);
-  return;
+  return; 
 })
 
 export default router
