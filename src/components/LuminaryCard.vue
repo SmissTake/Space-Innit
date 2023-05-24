@@ -1,6 +1,6 @@
 <template>
-  <v-card>
-    <v-img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Star%2A.svg/1200px-Star%2A.svg.png" height="200"></v-img>
+  <v-card 
+    elevation="5">
     <v-card-title>{{ luminary.name }}</v-card-title>
     <v-card-subtitle>{{ luminary.englishName }}</v-card-subtitle>
     <v-card-text>
@@ -20,8 +20,6 @@
 import { defineComponent } from 'vue'
 import Luminary from '@/models/luminary'
 
-console.log(process.env.VUE_APP_UNSPLASH_ACCESS_KEY);
-
 export default defineComponent({
   name: 'LuminaryCard',
   props: {
@@ -31,9 +29,6 @@ export default defineComponent({
     },
   },
   computed: {
-    // imageUrl(): string {
-    //   return `https://api.unsplash.com/search/photos?query={${this.luminary.name}}&client_id={${process.env.VUE_APP_UNSPLASH_ACCESS_KEY}}`
-    // },
   },
 })
 </script>
