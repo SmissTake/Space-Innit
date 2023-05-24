@@ -3,7 +3,7 @@ import { defineStore } from 'pinia'
 // Types
 import Luminary from '@/models/luminary'
 
-export const useLuminariesStore = defineStore('app', {
+export const useLuminariesStore = defineStore('luminaries', {
   state: () => ({
     luminaries: [] as Luminary[],
     isLoading: false

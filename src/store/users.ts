@@ -3,7 +3,7 @@ import { defineStore } from 'pinia'
 // Types
 import User from '@/models/user'
 
-export const useUsersStore = defineStore('app', {
+export const useUsersStore = defineStore('users', {
   state: () => ({
     user: {} as User,
   }),
