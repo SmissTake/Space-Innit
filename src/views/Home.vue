@@ -1,7 +1,7 @@
 <template>
-  <HelloWorld />
+  <LuminariesList />
 </template>
 
 <script lang="ts" setup>
-  import HelloWorld from '@/components/HelloWorld.vue'
+  import LuminariesList from '@/components/LuminariesList.vue';
 </script>
