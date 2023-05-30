@@ -33,11 +33,19 @@ export default defineComponent({
   },
   methods: {
     like() {
+      if(this.liked) {
+        this.unfavorite()
+      }
+      else {
+        this.favorite()
+      }
       this.liked = !this.liked
-      this.favorite()
     },
     favorite() {
       usersStore.setFavorite(this.luminaryId)
+    },
+    unfavorite() {
+      usersStore.removeFavorite(this.luminaryId)
     }
   }
 })

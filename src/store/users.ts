@@ -21,5 +21,10 @@ export const useUsersStore = defineStore('users', {
         this.user.favoriteLuminaries.push(luminaryId);
       }
     },
+    removeFavorite(luminaryId: string) {
+      if (this.user.favoriteLuminaries && this.user.favoriteLuminaries.includes(luminaryId)) {
+        this.user.favoriteLuminaries = this.user.favoriteLuminaries.filter((id) => id !== luminaryId);
+      }
+    }
   }
 })
