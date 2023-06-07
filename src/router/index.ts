@@ -26,6 +26,17 @@ const routes = [
     ],
   },
   {
+    path: '/solar-system',
+    component: () => import('@/layouts/default/Default.vue'),
+    children: [
+      {
+        path: '',
+        name: 'Solar System',
+        component: () => import('@/views/SolarSystem.vue')
+      }
+    ]
+  },
+  {
     path: '/profile',
     component: () => import('@/layouts/default/Default.vue'),
     children: [
