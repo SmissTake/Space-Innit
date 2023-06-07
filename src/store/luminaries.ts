@@ -17,16 +17,18 @@ export const useLuminariesStore = defineStore('luminaries', {
     }
   },
   actions: {
-    fetchLuminaries() {
-      this.isLoading = true
-      fetch('https://api.le-systeme-solaire.net/rest/bodies/')
-        .then((response) => response.json())
-        .then((data) => {
-          data.bodies.forEach((luminary: Luminary) => {
-            this.addLuminary(luminary)
+    fetchLuminaries : async function ()  {
+      if(this.luminaries.length == 0) {
+        this.isLoading = true
+        fetch('https://api.le-systeme-solaire.net/rest/bodies/')
+          .then((response) => response.json())
+          .then((data) => {
+            data.bodies.forEach((luminary: Luminary) => {
+              this.addLuminary(luminary)
+            })
+            this.isLoading = false
           })
-          this.isLoading = false
-        })
+      }
     },
     addLuminary(luminary: Luminary) {
       this.luminaries.push(luminary)

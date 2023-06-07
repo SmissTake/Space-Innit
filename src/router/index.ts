@@ -27,11 +27,11 @@ const routes = [
   },
   {
     path: '/profile',
-    name: 'Profile',
     component: () => import('@/layouts/default/Default.vue'),
     children: [
       {
         path: '',
+        name: 'Profile',
         component: () => import(/* webpackChunkName: "profile" */ '@/views/Profile.vue'),
       },
     ],
