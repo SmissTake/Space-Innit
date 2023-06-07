@@ -44,10 +44,6 @@ const router = createRouter({
 })
 
 router.beforeEach((to) => {
-  const luminariesStore = useLuminariesStore()
-  if(luminariesStore.luminaries.length === 0) {
-    luminariesStore.fetchLuminaries()
-  }
 
   const userStore = useUsersStore()
   // if user store in store is empty object
