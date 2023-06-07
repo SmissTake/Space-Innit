@@ -46,6 +46,14 @@ export default defineComponent({
       default: true,
     },
   },
+  created() {
+    if (this.pagination) {
+      this.luminaries = this.luminariesSet.slice(0, this.pageSize);
+    }
+    else {
+      this.luminaries = this.luminariesSet;
+    }
+  },
   updated() {
     if (this.pagination) {
       this.luminaries = this.luminariesSet.slice(0, this.pageSize);

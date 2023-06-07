@@ -31,7 +31,6 @@ export default defineComponent({
   async created() {
     const store = useLuminariesStore();
     this.luminaries = store.luminaries;
-    this.luminariesSearched = this.luminaries;
   },
   methods: {
     search(searchString: string) {
@@ -43,7 +42,6 @@ export default defineComponent({
       this.luminariesSearched = this.luminaries.filter((luminary) => {
         return luminary.name.toLowerCase().includes(this.searchString.toLowerCase());
       });
-      console.log(this.luminariesSearched);
       return this.luminariesSearched;
     }
   }
