@@ -46,7 +46,7 @@ export default defineComponent({
       default: true,
     },
   },
-  async created() {
+  updated() {
     if (this.pagination) {
       this.luminaries = this.luminariesSet.slice(0, this.pageSize);
       window.addEventListener("scroll", this.handleScroll);

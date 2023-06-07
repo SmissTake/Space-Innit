@@ -1,12 +1,14 @@
 <template>
   <div>
-    <LuminariesList :luminaries-set="luminaries"/>
+    <LuminariesSearch @search="search"/>
+    <LuminariesList :luminaries-set="searchedLuminaries"/>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from 'vue'
+import { defineComponent } from 'vue'
 import LuminariesList from '@/components/LuminariesList.vue'
+import LuminariesSearch from '@/components/LuminariesSearch.vue'
 import { useLuminariesStore } from "@/store/luminaries";
 import Luminary from '@/models/luminary';
 
@@ -16,16 +18,34 @@ export default defineComponent({
   name: 'Home',
   components: {
     LuminariesList,
+    LuminariesSearch,
   },
   data() {
     return {
       isLoading: store.$state.isLoading,
       luminaries: [] as Luminary[],
+      luminariesSearched : [] as Luminary[],
+      searchString: '',
     }
   },
   async created() {
     const store = useLuminariesStore();
     this.luminaries = store.luminaries;
+    this.luminariesSearched = this.luminaries;
   },
+  methods: {
+    search(searchString: string) {
+      this.searchString = searchString
+    }
+  },
+  computed: {
+    searchedLuminaries() {
+      this.luminariesSearched = this.luminaries.filter((luminary) => {
+        return luminary.name.toLowerCase().includes(this.searchString.toLowerCase());
+      });
+      console.log(this.luminariesSearched);
+      return this.luminariesSearched;
+    }
+  }
 })
 </script>
