@@ -26,6 +26,22 @@ const routes = [
     ],
   },
   {
+    path: '/solar-system',
+    component: () => import('@/layouts/default/Default.vue'),
+    children: [
+      {
+        path: '',
+        name: 'Solar System',
+        component: () => import('@/views/SolarSystem.vue'),
+        beforeEnter: async (to, from, next) => {
+          const store = useLuminariesStore();
+          await store.fetchLuminaries();
+          next()
+        }
+      }
+    ]
+  },
+  {
     path: '/profile',
     component: () => import('@/layouts/default/Default.vue'),
     children: [
