@@ -7,7 +7,7 @@
         <div class='pip'></div>
         {{ planet.name }}
       </h2>
-      <h3>{{ id }}</h3>
+      <h3>{{ planet.englishName }}</h3>
     </div>
   </label>
 </template>
