@@ -789,7 +789,7 @@ body {
                         }
                     }
                     
-                    & .trajectory.lo {
+                    & .trajectory.io {
                         @include makeTrajectory(1500px, -210px, -189px);
                     }
                     
@@ -803,7 +803,7 @@ body {
 
                     @include makePlanet(rgba(188, 143, 127, 0.6), rgba(234, 205, 199, 0.6), 'https://www.jpl.nasa.gov/spaceimages/images/largesize/PIA07782_hires.jpg');
 
-                    & .lo {
+                    & .io {
                         @include makeMoon(100px, -100px, 0.4, 'http://stevealbers.net/albers/sos/jupiter/io/io_rgb_cyl.jpg');
                     }
 
