@@ -1,5 +1,5 @@
 <template>
-  <input :class='["planet"+id]' :id='planetClass' name='planet' type='radio'>
+  <input checked :class='["planet"+id]' :id='planetClass' name='planet' type='radio'>
   <label :class='["menu ", planetClass]' :for='planetClass'>
     <div class='preview'></div>
     <div class='info'>
