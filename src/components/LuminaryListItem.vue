@@ -65,8 +65,8 @@ export default defineComponent({
       if (data) {
         const x = event.pageX;
         const y = event.pageY;
-        data.style.top = `${y}px`;
-        data.style.left = `${x}px`;
+        data.style.top = `${y+40}px`;
+        data.style.left = `${x+40}px`;
       }
     },
   },
@@ -93,12 +93,6 @@ export default defineComponent({
   cursor: pointer;
   transition: color 0.1s ease-in-out;
 }
-
-.luminary-list-item :hover {
-  color: #8dcdd8;
-  transition: color 0.1s ease-in-out;
-}
-
 a {
   display: flex;
   justify-content: space-between;
@@ -109,6 +103,29 @@ a {
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   mix-blend-mode: difference;
   transform: translate3d(0, 0, 0);
+}
+
+a:before{
+  content: "";
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(217deg, #26daaa, rgba(255,0,0,0) 70.71%),linear-gradient(127deg, #8dcdd8, rgba(0,255,0,0) 70.71%),linear-gradient(336deg, #FF8732, rgba(0,0,255,0) 70.71%);
+  position: absolute;
+  left: 0;
+  bottom: -3px; /* this is to match where the border is */
+  transform-origin: left; 
+  transform: scale(0);
+  transition: 0.25s linear;
+}
+
+a:hover {
+  color: #8dcdd8;
+  transition: color 0.1s ease-in-out;
+}
+
+a:hover:before {
+  transform: scale(1);
 }
 
 h2 {
@@ -127,4 +144,15 @@ h2 {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   z-index: 9999;
 }
+
+  #circle {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    background: #ccc;
+    border: 20px solid #8dcdd8;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    top: calc(50vh - 100px);
+    left: calc(50vw - 100px);
+  }
 </style>
