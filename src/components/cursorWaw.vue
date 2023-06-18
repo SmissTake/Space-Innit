@@ -32,8 +32,8 @@ export default defineComponent({
   position: fixed;
   top: 0;
   left: 0;
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   backdrop-filter: drop-shadow(16px 16px 20px rgb(168, 255, 168)) invert(75%);
   z-index: 9999;
