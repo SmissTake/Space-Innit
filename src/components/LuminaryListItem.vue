@@ -81,8 +81,17 @@ export default defineComponent({
       if (data) {
         const x = event.pageX;
         const y = event.pageY;
-        data.style.top = `${y+20}px`;
-        data.style.left = `${x+20}px`;
+        const width = data.offsetWidth;
+        const viewportWidth = window.innerWidth - 20; // 20 is the scrollbar width
+        let left = x - width / 2;
+        let top = y + 40;
+        if (left < 0) {
+          left = 0;
+        } else if (left + width > viewportWidth) {
+          left = viewportWidth - width;
+        }
+        data.style.left = `${left}px`;
+        data.style.top = `${top}px`;
       }
     },
   },
