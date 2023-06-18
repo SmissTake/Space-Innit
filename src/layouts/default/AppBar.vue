@@ -1,7 +1,7 @@
 <template>
   <v-app-bar flat color="#000000ae" :style="{ backdropFilter: 'blur(10px)' }">
-    <v-app-bar-title>
-      Space ?
+    <v-app-bar-title style="font-size: 3em;">
+      ༗
     </v-app-bar-title>
     <v-spacer></v-spacer>
     <v-btn to="/">Home</v-btn>

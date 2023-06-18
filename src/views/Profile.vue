@@ -5,7 +5,7 @@
     </h1>
     <h2>Favorite</h2>
     <div class="no-favorite" v-if="luminariesFavorite.length === 0">
-      <span> You have no favorite luminaries yet. </span>
+      <span> You have no favorite luminaries yet. <br>༗</span>
     </div>
     <ul v-else>
       <LuminariesList
