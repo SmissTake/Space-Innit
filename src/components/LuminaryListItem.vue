@@ -90,7 +90,6 @@ export default defineComponent({
   flex-direction: column;
   align-items: center;
   border-radius: 0.5rem;
-  cursor: pointer;
   transition: color 0.1s ease-in-out;
 }
 a {
@@ -103,6 +102,7 @@ a {
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   mix-blend-mode: difference;
   transform: translate3d(0, 0, 0);
+  cursor: none;
 }
 
 a:before{
