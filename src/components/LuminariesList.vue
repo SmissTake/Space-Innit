@@ -1,7 +1,6 @@
 <template>
   <div>
     <cursorWaw />
-    <h2>Luminaries List</h2>
     <ul>
       <LuminaryListItem 
         v-for="luminary in luminaries"

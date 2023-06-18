@@ -11,9 +11,25 @@
     </a>
   </li>
   <span ref="data" class="data">
-    <p>Semimajor Axis: {{ luminary.semimajorAxis }}</p>
-    <p>Eccentricity: {{ luminary.eccentricity }}</p>
-    <p>Inclination: {{ luminary.inclination }}</p>
+    <div class="title">
+      <h3>{{ luminary.name }}</h3>
+      <h4 v-if="luminary.bodyType">
+        {{ luminary.bodyType }}
+      </h4>
+    </div>
+    <p v-if="luminary.discoveredBy">
+      Discovered by 
+      <b>{{ luminary.discoveredBy }}</b> on {{ luminary.discoveryDate }}
+    </p>
+    <p v-if="luminary.alternativeName">
+      Alternative name: {{ luminary.alternativeName }}
+    </p>
+    <p v-if="luminary.gravity">
+      Gravity: {{ luminary.gravity }} m/s²
+    </p>
+    <p v-if="luminary.avgTemp">
+      Average temperature: {{ luminary.avgTemp }} °K
+    </p>
     <p v-if="luminary.aroundPlanet">
       Around Planet: {{ luminary.aroundPlanet.planet }}
     </p>
@@ -65,8 +81,8 @@ export default defineComponent({
       if (data) {
         const x = event.pageX;
         const y = event.pageY;
-        data.style.top = `${y+40}px`;
-        data.style.left = `${x+40}px`;
+        data.style.top = `${y+20}px`;
+        data.style.left = `${x+20}px`;
       }
     },
   },
@@ -129,30 +145,42 @@ a:hover:before {
 }
 
 h2 {
-  font-size: 3em;
+  font-size: 5em;
+  font-weight: 100;
+}
+
+.title h3 {
+  font-size: 2em;
+  font-weight: 600;
+  padding: 10px;
+}
+.title h4 {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.5em;
+  font-weight: 400;
+  padding: 10px;
+}
+
+.data .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(217deg, #26daaa, rgba(255,0,0,0) 70.71%),linear-gradient(127deg, #8dcdd8, rgba(0,255,0,0) 70.71%),linear-gradient(336deg, #FF8732, rgba(0,0,255,0) 70.71%);
+  border-radius: 0.25rem;
 }
 
 .data {
+  width: 20rem;
   position: absolute;
   top: 0;
   left: 0;
   display: none;
-  background-color: #080808;
+  backdrop-filter: drop-shadow(16px 16px 20px rgb(168, 255, 168)) invert(75%);
   padding: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 0.5rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   z-index: 9999;
+  color: black;
 }
-
-  #circle {
-    height: 200px;
-    width: 200px;
-    border-radius: 50%;
-    background: #ccc;
-    border: 20px solid #8dcdd8;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    top: calc(50vh - 100px);
-    left: calc(50vw - 100px);
-  }
 </style>
