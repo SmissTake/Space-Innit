@@ -15,7 +15,6 @@
 import { defineComponent } from "vue";
 import { useLuminariesStore } from "@/store/luminaries";
 import Luminary from "@/models/luminary";
-// import LuminaryCard from "./LuminaryCard.vue";
 import LuminaryListItem from "./LuminaryListItem.vue";
 
 export default defineComponent({

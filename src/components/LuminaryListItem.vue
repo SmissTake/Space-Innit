@@ -18,7 +18,6 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import Luminary from "@/models/luminary";
-import LuminaryDialog from "./LuminaryDialog.vue";
 import LikeButton from "./LikeButton.vue";
 import { useUsersStore } from "@/store/users";
 
@@ -72,7 +71,6 @@ export default defineComponent({
     };
   },
   components: {
-    LuminaryDialog,
     LikeButton,
   },
 });
