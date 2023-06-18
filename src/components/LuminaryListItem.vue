@@ -147,6 +147,7 @@ a:hover:before {
 h2 {
   font-size: 5em;
   font-weight: 100;
+  text-transform: uppercase;
 }
 
 .title h3 {
