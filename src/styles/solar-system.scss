@@ -81,7 +81,7 @@ $pluto: #FF8732;
 %planet {
     height: $planetSize;
     width: $planetSize;
-    border-radius: $planetSize / 2;
+    border-radius: calc($planetSize / 2);
     background: red;
     transition: transform 2.8s .23s cubic-bezier(0.33, 0, 0, 1), opacity 2s .8s, box-shadow 0s 0s; //
     background-size: 1140px 910px !important;
@@ -91,7 +91,7 @@ $pluto: #FF8732;
     & .moon {
         height: 200px;
         width: 200px;
-        border-radius: $planetSize / 2;
+        border-radius: calc($planetSize / 2);
         background: red;  
         position: absolute;
         text-align: center;
@@ -393,7 +393,7 @@ body {
                 // Caluclate middle and distribute evenly
                 $labelSize: 34px;
                 $labelSpacing: $menuSpacing;
-                $totalHeight: ($labelSize * $planetCount) + ($labelSpacing * ($planetCount)) / 2;
+                $totalHeight: calc(($labelSize * $planetCount) + ($labelSpacing * ($planetCount)) / 2);
 
                 top: calc(50vh + 100px + ((#{$labelSpacing} + #{$labelSize}) * #{$l}) + 0px - #{$totalHeight});   
             }
@@ -742,7 +742,7 @@ body {
                 &.earth {
                     @include makePlanet(#7894a9, #8cbaff, 'https://img00.deviantart.net/04ef/i/2009/114/3/e/new_earth_texture_map_by_lightondesigns.jpg');
 
-                    & .trajectory.m {
+                    & .trajectory.moon {
                         @include makeTrajectory(1500px, -150px, -110px);
                     }
                     & .moon {
@@ -769,11 +769,11 @@ body {
                         @include makeMoon(900px, -100px, 0.45, 'https://www.jpl.nasa.gov/spaceimages/images/largesize/PIA07782_hires.jpg');
                     }
 
-                    & .trajectory.d {
+                    & .trajectory.deimos {
                         @include makeTrajectory(1770px, -317px, -110px);
                     }
 
-                    & .trajectory.p {
+                    & .trajectory.phoebos {
                         @include makeTrajectory(1600px, -200px, -160px);
                     }
 
@@ -789,15 +789,15 @@ body {
                         }
                     }
                     
-                    & .trajectory.lop {
+                    & .trajectory.lo {
                         @include makeTrajectory(1500px, -210px, -189px);
                     }
                     
-                    & .trajectory.eu {
+                    & .trajectory.europa {
                         @include makeTrajectory(1530px, -165px, -130px);
                     }
                     
-                    & .trajectory.ga {
+                    & .trajectory.ganymede {
                         @include makeTrajectory(1760px, -360px, -114px);
                     }
 
@@ -826,15 +826,15 @@ body {
                     
                     @include makePlanet(rgba(188, 143, 127, 0.6), rgba(234, 205, 199, 0.6), 'https://www.solarsystemscope.com/images/textures/full/2k_saturn.jpg');
                     
-                    & .trajectory.ti {
+                    & .trajectory.titan {
                         @include makeTrajectory(1500px, -210px, -189px);
                     }
                     
-                    & .trajectory.di {
+                    & .trajectory.dione {
                         @include makeTrajectory(1530px, -165px, -130px);
                     }
                     
-                    & .trajectory.enc {
+                    & .trajectory.enceladus {
                         @include makeTrajectory(1760px, -360px, -114px);
                     }
 
@@ -861,13 +861,13 @@ body {
 
                     }
 
-                    & .trajectory.mir {
+                    & .trajectory.miranda {
                         @include makeTrajectory(1500px, -210px, -189px);
                     }
-                    & .trajectory.ari {
+                    & .trajectory.ariel {
                         @include makeTrajectory(1530px, -165px, -130px);
                     }
-                    & .trajectory.umb {
+                    & .trajectory.umbriel {
                         @include makeTrajectory(1760px, -360px, -114px);
                     }
 
@@ -894,13 +894,13 @@ body {
                         }
 
                     }
-                    & .trajectory.tri {
+                    & .trajectory.triton {
                         @include makeTrajectory(1500px, -210px, -189px);
                     }
-                    & .trajectory.pro {
+                    & .trajectory.proteus {
                         @include makeTrajectory(1530px, -165px, -130px);
                     }
-                    & .trajectory.ner {
+                    & .trajectory.nereid {
                         @include makeTrajectory(1760px, -360px, -114px);
                     }
 
