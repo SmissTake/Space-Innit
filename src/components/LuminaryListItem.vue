@@ -5,7 +5,7 @@
     @mousemove="updateDataPosition"
     @mouseleave="hideData"
   >
-    <a href="#">
+    <a>
       <h2>{{ luminary.name }}</h2>
       <LikeButton :luminaryId="luminary.id" :isLiked="isLuminariesLiked()" />
     </a>
