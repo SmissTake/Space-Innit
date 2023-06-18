@@ -1,5 +1,5 @@
 <template>
-  <input :class='["planet"+id]' :id='planetClass' name='planet' type='radio'>
+  <input checked :class='["planet"+id]' :id='planetClass' name='planet' type='radio'>
   <label :class='["menu ", planetClass]' :for='planetClass'>
     <div class='preview'></div>
     <div class='info'>
@@ -7,7 +7,7 @@
         <div class='pip'></div>
         {{ planet.name }}
       </h2>
-      <h3>{{ id }}</h3>
+      <h3>{{ planet.englishName }}</h3>
     </div>
   </label>
 </template>

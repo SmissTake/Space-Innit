@@ -14,7 +14,7 @@ import { createApp } from 'vue'
 import { registerPlugins } from '@/plugins'
 
 // Styles
-import '@/styles/solar-system.css'
+import '@/styles/main.scss'
 
 const app = createApp(App)
 
