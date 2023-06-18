@@ -180,7 +180,7 @@ h2 {
   border: 1px solid #ccc;
   border-radius: 0.5rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  z-index: 9999;
+  z-index: 1;
   color: black;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
-  <v-app-bar flat>
+  <v-app-bar flat color="#000000ae" :style="{ backdropFilter: 'blur(10px)' }">
     <v-app-bar-title>
-      Luminaries
+      Space ?
     </v-app-bar-title>
     <v-spacer></v-spacer>
     <v-btn to="/">Home</v-btn>
@@ -13,3 +13,9 @@
 <script lang="ts" setup>
   //
 </script>
+
+<style scoped>
+  v-app-bar-title {
+    font-family: 'Italiana', serif;
+  }
+</style>
