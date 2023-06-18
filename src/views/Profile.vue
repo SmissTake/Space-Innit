@@ -60,6 +60,7 @@ export default defineComponent({
 <style scoped>
 .profil {
   margin: 0 auto;
+  width: clamp(300px, 80%, 800px);
   display: flex;
   flex-direction: column;
   align-items: center;
