@@ -1,4 +1,5 @@
 <template>
+  <div class="solar-system-view">
   <template v-for="(planet, index) in orderedPlanets">
     <SolarSystemPlanetLabel  :planet="planet"  :id="orderedPlanets.length - index"/>
   </template>
@@ -7,6 +8,7 @@
   <template v-for="(planet, index) in orderedPlanets.slice().reverse()" :key="index">
     <SolarSystemPlanetVisual :planet="planet"/>
   </template>
+</div>
 </div>
 </template>
 <script lang="ts">

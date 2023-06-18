@@ -33,7 +33,7 @@ $pluto: #FF8732;
     right: 0;
 }
 
-* {
+.solar-system-view * {
     -webkit-user-select: none;  /* Chrome all / Safari all */
     -moz-user-select: none;     /* Firefox all */
     -ms-user-select: none;      /* IE 10+ */
@@ -178,7 +178,7 @@ $pluto: #FF8732;
     }
 }
 
-body {
+body :has(.solar-system-view) {
     overflow: hidden;
     background: black;
     height: 100vh;
