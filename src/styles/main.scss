@@ -16,3 +16,23 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 600 !important;
   }
 }
+
+// custom scrollbar
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: black;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ffffff2a;
+  border-radius: 10px;
+  transition: 0.5s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  transition: 0.5s;
+  background: linear-gradient(217deg, #26daaa, rgba(255,0,0,0) 70.71%),linear-gradient(336deg, #8dcdd8, rgba(0,255,0,0) 70.71%),linear-gradient(127deg, #FF8732, rgba(0,0,255,0) 70.71%);
+}
