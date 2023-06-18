@@ -58,8 +58,8 @@ export default defineComponent({
     updateDataPosition(event: MouseEvent) {
       const data = this.$refs.data as HTMLElement;
       if (data) {
-        const x = event.clientX;
-        const y = event.clientY;
+        const x = event.pageX;
+        const y = event.pageY;
         data.style.top = `${y}px`;
         data.style.left = `${x}px`;
       }
