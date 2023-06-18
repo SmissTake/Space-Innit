@@ -1,6 +1,6 @@
 <template>
   <v-btn color="surface" @click="like">
-    <v-icon left>{{ liked ? 'mdi-heart' : 'mdi-heart-outline' }}</v-icon>
+    <v-icon left class="heart-icon" :style="{ color: liked ? '#26daaa' : 'white' }">{{ liked ? 'mdi-heart' : 'mdi-heart-outline' }}</v-icon>
   </v-btn>
 </template>
 
