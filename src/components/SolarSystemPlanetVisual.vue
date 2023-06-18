@@ -1,12 +1,12 @@
 <template>
-  <div class='solar_systm'>
-    <div :class='["planet ", planetClass]'>
+  <div class="solar_systm">
+    <div :class="['planet ', planetClass]">
       <template v-if="moons.length > 0">
         <template v-for="(moon, index) in moons" :key="index">
-          <SolarSystemMoon :planet="moon"/>
+          <SolarSystemMoon :planet="moon" />
         </template>
       </template>
-      <div :class='["planet_description ", planetClass]'>
+      <div :class="['planet_description ', planetClass]">
         <h2>Planet</h2>
         <h1>{{ planet.name }}</h1>
       </div>
@@ -37,6 +37,22 @@ export default defineComponent({
   data() {
     return {
       luminaries: [] as Luminary[],
+      authMoons: [
+        'Triton',
+        'Proteus',
+        'Nereid',
+        'Miranda',
+        'Ariel',
+        'Umbriel',
+        'Titan',
+        'Dione',
+        'Enceladus',
+        'Io',
+        'Europa',
+        'Ganymede',
+        'Deimos',
+        'Moon',
+      ]
     };
   },
   created() {
@@ -46,8 +62,14 @@ export default defineComponent({
     planetClass(): string {
       return this.planet.englishName.toLowerCase();
     },
+
+    /**
+     * the codepen template uses only some specific moons for each planet, listed in authMoons
+     */
     moons(): Luminary[] {
-      return this.luminaries.filter((luminary) => luminary.aroundPlanet?.planet === this.planet.id);
+      return this.luminaries.filter((luminary) => {
+        return luminary.aroundPlanet?.planet === this.planet.id && this.authMoons.includes(luminary.englishName);
+      });
     }
   }
 });
