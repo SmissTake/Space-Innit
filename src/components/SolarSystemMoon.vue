@@ -1,6 +1,8 @@
 <template>
   <div :class="['moon ', planetClass]">
-    <h3>Moon</h3>
+    <h3>
+      {{ planet.bodyType }}
+    </h3>
     <h2>
       {{ planet.name }}
     </h2>

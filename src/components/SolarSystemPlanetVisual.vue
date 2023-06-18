@@ -7,7 +7,7 @@
         </template>
       </template>
       <div :class="['planet_description ', planetClass]">
-        <h2>Planet</h2>
+        <h2>{{ planet.bodyType }}</h2>
         <h1>{{ planet.name }}</h1>
       </div>
       <div class='overlay'></div>
