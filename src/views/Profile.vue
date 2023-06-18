@@ -66,7 +66,7 @@ export default defineComponent({
 }
 
 ul {
-  width: 800px;
+  width: clamp(300px, 80%, 800px);
 }
 
 h1,

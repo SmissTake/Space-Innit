@@ -145,7 +145,7 @@ a:hover:before {
 }
 
 h2 {
-  font-size: 5em;
+  font-size: clamp(2rem, 5vw, 5rem);
   font-weight: 100;
   text-transform: uppercase;
 }
