@@ -15,11 +15,9 @@ const customDark: ThemeDefinition = {
   dark: true,
   colors: {
     background: '#000000',
-    surface: '#13293D',
+    surface: '#000000',
     primary: '#006494',
-    'primary-darken-1': '#247BA0',
     secondary: '#1B98E0',
-    'secondary-darken-1': '#E8F1F2',
     error: '#B00020',
     info: '#2196F3',
     success: '#4CAF50',

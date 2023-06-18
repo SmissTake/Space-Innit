@@ -89,10 +89,14 @@ export default defineComponent({
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 1rem;
-  padding: 1rem;
   border-radius: 0.5rem;
   cursor: pointer;
+  transition: color 0.1s ease-in-out;
+}
+
+.luminary-list-item :hover {
+  color: #8dcdd8;
+  transition: color 0.1s ease-in-out;
 }
 
 a {

@@ -1,14 +1,12 @@
 <template>
-  <v-btn color="primary" @click="like">
+  <v-btn color="surface" @click="like">
     <v-icon left>{{ liked ? 'mdi-heart' : 'mdi-heart-outline' }}</v-icon>
-    {{ liked ? 'Liked' : 'Like' }}
   </v-btn>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
 import { useUsersStore } from '@/store/users'
-import { is } from '@babel/types'
 
 const usersStore = useUsersStore()
 
