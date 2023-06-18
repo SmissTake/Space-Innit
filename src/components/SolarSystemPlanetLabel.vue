@@ -3,11 +3,11 @@
   <label :class='["menu ", planetClass]' :for='planetClass'>
     <div class='preview'></div>
     <div class='info'>
+      <h3>{{ planet.englishName }}</h3>
       <h2>
         <div class='pip'></div>
         {{ planet.name }}
       </h2>
-      <h3>{{ planet.englishName }}</h3>
     </div>
   </label>
 </template>

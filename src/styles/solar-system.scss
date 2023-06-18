@@ -5,7 +5,7 @@ $planetTransitionSpeed: 2s;
 $mainPlanetViewAmount: 280; // Less means we see more of the planet at the bottom
 $globalPerspective: 800px;
 $sceneAxisTilt: -20deg;
-$menuSpacing: 14px;
+$menuSpacing: 40px;
 $traverse: "";
 $traverseTriggers: "";
 
@@ -19,8 +19,6 @@ $saturn: #b29d81;
 $uranus: #8dcdd8;
 $neptune: #4f83e2;
 $pluto: #FF8732;
-
-@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,700');
 
 // fix
 
@@ -101,19 +99,25 @@ $pluto: #FF8732;
         text-transform: uppercase;
         opacity: 0;
         transition: all .6s .2s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
 
         h2 {     
-            font-weight: 100;
-            font-size: 40px;
+            font-weight: 600;
+            font-size: 70px;
             letter-spacing: 5px;
             margin: 0;
             position: relative;
             top: -120px;
+            white-space: nowrap;
 
         }
         h3 {     
-            font-weight: 100;
-            font-size: 20px;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            font-size: 30px;
             letter-spacing: 5px;
             color: #fea082;
             margin: 0;
@@ -182,25 +186,6 @@ body :has(.solar-system-view) {
     overflow: hidden;
     background: black;
     height: 100vh;
-    font-family: 'Montserrat', sans-serif;
-    .logo {
-        color: white;
-        position: absolute;
-        top: 40px;
-        left: 0;
-        right: 0;
-        margin: auto;
-        text-align: center;
-        font-size: 14px;
-        text-transform: uppercase;
-        font-weight: 100;
-        letter-spacing: 4px;
-        span  {
-            font-size: 12px;
-            color: #f39041;
-            display: block;
-        }
-    }
     label {
         cursor: pointer;
 
@@ -364,10 +349,16 @@ body :has(.solar-system-view) {
 
         }
 
+        h3 {
+            font-weight: 400;
+            font-size: 10px !important;
+        }
+
         h2 {
-            font-size: 11px;
+            font-size: 20px;
             opacity: 0.4;
             margin-bottom: 4px;
+            font-weight: 600;
 
 
             & .pip {
@@ -384,6 +375,7 @@ body :has(.solar-system-view) {
         }
 
         h3 {
+            font-family: 'Roboto', sans-serif;
             font-size: 8px;
             letter-spacing: 1px;
             transition: all 0.3s;
@@ -1038,10 +1030,17 @@ body :has(.solar-system-view) {
                         letter-spacing: 5px;
                         margin: 0;
                     }
+                    h2 {
+
+                        font-weight: 300;
+                        font-size: 20px;
+                        font-family: 'Roboto', sans-serif;
+                    }
 
                     h1 {
                         letter-spacing: 16px;
                         font-size: 34px;
+                        font-size: 100px !important;
                     }
 
                     h2,
@@ -1051,7 +1050,7 @@ body :has(.solar-system-view) {
 
                     h2 {
                         margin-top: 60px;
-                        margin-bottom:6px;
+                        margin-bottom:-30px;
                     }
 
                     p {
@@ -1059,27 +1058,6 @@ body :has(.solar-system-view) {
                         margin-top:14px;
                         opacity: 0.9;
                         margin-bottom: 10px;
-                    }
-
-                    a {
-                        color: #fea082;
-                        font-size: 11px;
-                        font-weight: 500;
-                        padding: 0 2px 5px 0px;
-                        border-bottom: 2px solid;
-                        transition: all 0.2s;
-                        position: relative;
-                        left: 0;
-
-                        &:hover {
-                            padding: 0 10px 5px 10px;
-                            left: -1px;
-                        }
-
-                        span {
-                            letter-spacing: 0;
-                            margin-left: -5px;
-                        }
                     }
                 }
             }
