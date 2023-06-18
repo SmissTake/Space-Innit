@@ -13,7 +13,6 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { useLuminariesStore } from "@/store/luminaries";
 import Luminary from "@/models/luminary";
 import LuminaryListItem from "./LuminaryListItem.vue";
 

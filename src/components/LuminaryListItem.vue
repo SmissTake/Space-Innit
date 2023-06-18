@@ -12,6 +12,11 @@
   </li>
   <span ref="data" class="data">
     <p>Semimajor Axis: {{ luminary.semimajorAxis }}</p>
+    <p>Eccentricity: {{ luminary.eccentricity }}</p>
+    <p>Inclination: {{ luminary.inclination }}</p>
+    <p v-if="luminary.aroundPlanet">
+      Around Planet: {{ luminary.aroundPlanet.planet }}
+    </p>
   </span>
 </template>
 
@@ -67,7 +72,9 @@ export default defineComponent({
   },
   data() {
     return {
-      showDetails: false,
+      isScrolling: false,
+      scrollY: 0,
+      scrollVelocity: 0,
     };
   },
   components: {
@@ -84,22 +91,8 @@ export default defineComponent({
   align-items: center;
   margin: 1rem;
   padding: 1rem;
-  border: 1px solid #ccc;
   border-radius: 0.5rem;
   cursor: pointer;
-}
-
-.cursor {
-  position: absolute;
-  top: -50%;
-  left: -25%;
-  z-index: -1;
-  width: 600px;
-  height: 400px;
-  background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
-  background-position: 50% 50%;
-  background-size: cover;
-  opacity: 0;
 }
 
 a {
@@ -112,6 +105,10 @@ a {
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   mix-blend-mode: difference;
   transform: translate3d(0, 0, 0);
+}
+
+h2 {
+  font-size: 3em;
 }
 
 .data {
