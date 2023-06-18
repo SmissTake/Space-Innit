@@ -38,6 +38,7 @@ $pluto: #FF8732;
     -moz-user-select: none;     /* Firefox all */
     -ms-user-select: none;      /* IE 10+ */
     user-select: none;          /* Likely future */   
+    box-sizing: initial;
 }
 %absPosition {
     position: absolute;

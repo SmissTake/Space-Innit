@@ -10,7 +10,7 @@
         <h2>Planet</h2>
         <h1>{{ planet.name }}</h1>
       </div>
-      <!-- <div class='overlay'></div> -->
+      <div class='overlay'></div>
     </div>
   </div>
 </template>
