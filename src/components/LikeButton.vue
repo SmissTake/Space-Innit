@@ -1,5 +1,5 @@
 <template>
-  <v-btn color="surface" @click.prevent="like">
+  <v-btn color="surface" rounded="xl" size="x-large" @click.prevent="like" style=" height: 5em ">
     <v-icon left class="heart-icon" :style="{ color: liked ? '#26daaa' : 'white' }">{{ liked ? 'mdi-heart' : 'mdi-heart-outline' }}</v-icon>
   </v-btn>
 </template>
