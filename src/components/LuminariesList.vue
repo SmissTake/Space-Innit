@@ -1,22 +1,13 @@
 <template>
   <div>
     <h2>Luminaries List</h2>
-    <v-row
-      gutter="20">
-      <v-col
+    <ul>
+      <LuminaryListItem 
         v-for="luminary in luminaries"
         :key="luminary.id"
-        cols="12"
-        sm="6"
-        md="4"
-        lg="3"
-      >
-        <LuminaryCard :luminary="luminary" />
-      </v-col>
-      <v-row justify="center" v-if="isLoading">
-        <v-progress-circular indeterminate></v-progress-circular>
-      </v-row>
-    </v-row>
+        :luminary="luminary"
+      />
+    </ul>
   </div>
 </template>
 
@@ -24,71 +15,72 @@
 import { defineComponent } from "vue";
 import { useLuminariesStore } from "@/store/luminaries";
 import Luminary from "@/models/luminary";
-import LuminaryCard from "./LuminaryCard.vue";
+// import LuminaryCard from "./LuminaryCard.vue";
+import LuminaryListItem from "./LuminaryListItem.vue";
 
 export default defineComponent({
-  name: "LuminariesList",
-  data() {
-    return {
-      page: 1,
-      pageSize: 20,
-      isLoading: false,
-      luminaries: [] as Luminary[],
-    };
-  },
-  props: {
-    luminariesSet: {
-      type: Array as () => Luminary[],
-      required: true,
+    name: "LuminariesList",
+    data() {
+        return {
+            page: 1,
+            pageSize: 20,
+            isLoading: false,
+            luminaries: [] as Luminary[],
+        };
     },
-    pagination: {
-      type: Boolean,
-      default: true,
+    props: {
+        luminariesSet: {
+            type: Array as () => Luminary[],
+            required: true,
+        },
+        pagination: {
+            type: Boolean,
+            default: true,
+        },
     },
-  },
-  created() {
-    if (this.pagination) {
-      this.luminaries = this.luminariesSet.slice(0, this.pageSize);
-    }
-    else {
-      this.luminaries = this.luminariesSet;
-    }
-  },
-  updated() {
-    if (this.pagination) {
-      this.luminaries = this.luminariesSet.slice(0, this.pageSize);
-      window.addEventListener("scroll", this.handleScroll);
-    }
-    else {
-      this.luminaries = this.luminariesSet;
-    }
-  },
-  beforeUnmount() {
-    if (this.pagination){
-      window.removeEventListener("scroll", this.handleScroll);
-    }
-  },
-  methods: {
-    handleScroll() {
-      const scrollHeight = document.documentElement.scrollHeight;
-      const scrollTop = document.documentElement.scrollTop;
-      const clientHeight = document.documentElement.clientHeight;
-      const bottom = scrollHeight - scrollTop - clientHeight;
-      if (bottom <= 0 && !this.isLoading) {
-        this.loadMore();
-      }
+    created() {
+        if (this.pagination) {
+            this.luminaries = this.luminariesSet.slice(0, this.pageSize);
+        }
+        else {
+            this.luminaries = this.luminariesSet;
+        }
     },
-    async loadMore() {
-      this.isLoading = true;
-      this.page++;
-      const store = useLuminariesStore();
-      const start = (this.page - 1) * this.pageSize;
-      const end = start + this.pageSize;
-      const luminaries = store.luminaries.slice(start, end);
-      this.luminaries = [...this.luminaries, ...luminaries];
-      this.isLoading = false;
+    updated() {
+        if (this.pagination) {
+            this.luminaries = this.luminariesSet.slice(0, this.pageSize);
+            window.addEventListener("scroll", this.handleScroll);
+        }
+        else {
+            this.luminaries = this.luminariesSet;
+        }
     },
-  },
-  components: { LuminaryCard },
+    beforeUnmount() {
+        if (this.pagination) {
+            window.removeEventListener("scroll", this.handleScroll);
+        }
+    },
+    methods: {
+        handleScroll() {
+            const scrollHeight = document.documentElement.scrollHeight;
+            const scrollTop = document.documentElement.scrollTop;
+            const clientHeight = document.documentElement.clientHeight;
+            const bottom = scrollHeight - scrollTop - clientHeight;
+            if (bottom <= 0 && !this.isLoading) {
+                this.loadMore();
+            }
+        },
+        async loadMore() {
+            this.isLoading = true;
+            this.page++;
+            const store = useLuminariesStore();
+            const start = (this.page - 1) * this.pageSize;
+            const end = start + this.pageSize;
+            const luminaries = store.luminaries.slice(start, end);
+            this.luminaries = [...this.luminaries, ...luminaries];
+            this.isLoading = false;
+        },
+    },
+    components: { LuminaryListItem }
 });
 </script>
