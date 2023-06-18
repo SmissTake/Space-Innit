@@ -1,5 +1,6 @@
 <template>
   <div>
+    <cursorWaw />
     <h2>Luminaries List</h2>
     <ul>
       <LuminaryListItem 
@@ -15,6 +16,7 @@
 import { defineComponent } from "vue";
 import Luminary from "@/models/luminary";
 import LuminaryListItem from "./LuminaryListItem.vue";
+import cursorWaw from "./cursorWaw.vue";
 
 export default defineComponent({
     name: "LuminariesList",
@@ -35,6 +37,18 @@ export default defineComponent({
     updated() {
       this.luminaries = this.luminariesSet;
     },
-    components: { LuminaryListItem }
+    components: { 
+      LuminaryListItem,
+      cursorWaw
+     }
 });
 </script>
+
+<style scoped>
+
+/* hide default cursor */
+html {
+  cursor: none;
+}
+
+</style>
