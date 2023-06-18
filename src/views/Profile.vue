@@ -74,6 +74,12 @@ h2 {
   text-align: center;
 }
 
+h2 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  margin-bottom: 3em;
+}
+
 span {
   display: block;
   text-align: center;
