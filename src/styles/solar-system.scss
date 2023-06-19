@@ -581,9 +581,6 @@ body :has(.solar-system-view) {
                                 }
 
                                 & .overlay {
-                                    @debug $a;
-                                    @debug $i;
-
                                     @if($a == $i) {
                                         opacity: 1;
                                         top: -240px;
