@@ -182,7 +182,7 @@ $pluto: #FF8732;
     }
 }
 
-body :has(.solar-system-view) {
+body {
     overflow: hidden;
     background: black;
     height: 100vh;
