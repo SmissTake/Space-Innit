@@ -59,7 +59,7 @@ const router = createRouter({
   routes,
 })
 
-router.beforeEach((to) => {
+router.beforeEach(() => {
 
   const userStore = useUsersStore()
   // if user store in store is empty object

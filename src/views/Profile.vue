@@ -23,7 +23,6 @@ import LuminariesList from "@/components/LuminariesList.vue";
 import { useLuminariesStore } from "@/store/luminaries";
 import { useUsersStore } from "@/store/users";
 import User from "@/models/user";
-import router from "@/router";
 
 const luminariesStore = useLuminariesStore();
 const userStore = useUsersStore();
@@ -31,8 +30,7 @@ const userStore = useUsersStore();
 export default defineComponent({
   name: "Profile",
   components: {
-    LuminariesList,
-    router
+    LuminariesList
 },
   data() {
     return {

@@ -64,13 +64,13 @@ export default defineComponent({
         return false;
       }
     },
-    showData(event: MouseEvent) {
+    showData() {
       const data = this.$refs.data as HTMLElement;
       if (data) {
         data.style.display = "block";
       }
     },
-    hideData(event: MouseEvent) {
+    hideData() {
       const data = this.$refs.data as HTMLElement;
       if (data) {
         data.style.display = "none";

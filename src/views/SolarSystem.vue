@@ -1,6 +1,6 @@
 <template>
   <div class="solar-system-view">
-  <template v-for="(planet, index) in orderedPlanets">
+  <template v-for="(planet, index) in orderedPlanets" :key="index">
     <SolarSystemPlanetLabel  :planet="planet"  :id="orderedPlanets.length - index"/>
   </template>
 
