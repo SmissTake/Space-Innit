@@ -50,3 +50,11 @@ export default defineComponent ({
 })
 
 </script>
+
+<style>
+
+#app {
+  overflow: hidden;
+}
+
+</style>
