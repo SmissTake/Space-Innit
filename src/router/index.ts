@@ -17,7 +17,7 @@ const routes = [
         // this generates a separate chunk (about.[hash].js) for this route
         // which is lazy-loaded when the route is visited.
         component: () => import(/* webpackChunkName: "home" */ '@/views/Home.vue'),
-        beforeEnter: async (to, from, next) => {
+        beforeEnter: async (to:any, from:any, next:any) => {
           const store = useLuminariesStore();
           await store.fetchLuminaries();
           next()
@@ -33,7 +33,7 @@ const routes = [
         path: '',
         name: 'Solar System',
         component: () => import('@/views/SolarSystem.vue'),
-        beforeEnter: async (to, from, next) => {
+        beforeEnter: async (to:any, from:any, next:any) => {
           const store = useLuminariesStore();
           await store.fetchLuminaries();
           next()
