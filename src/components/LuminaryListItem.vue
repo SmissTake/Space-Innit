@@ -4,6 +4,7 @@
     @mouseover="showData"
     @mousemove="updateDataPosition"
     @mouseleave="hideData"
+    @click="showDataClick"
   >
     <a>
       <h2>{{ luminary.name }}</h2>
@@ -18,15 +19,13 @@
       </h4>
     </div>
     <p v-if="luminary.discoveredBy">
-      Discovered by 
+      Discovered by
       <b>{{ luminary.discoveredBy }}</b> on {{ luminary.discoveryDate }}
     </p>
     <p v-if="luminary.alternativeName">
       Alternative name: {{ luminary.alternativeName }}
     </p>
-    <p v-if="luminary.gravity">
-      Gravity: {{ luminary.gravity }} m/s²
-    </p>
+    <p v-if="luminary.gravity">Gravity: {{ luminary.gravity }} m/s²</p>
     <p v-if="luminary.avgTemp">
       Average temperature: {{ luminary.avgTemp }} °K
     </p>
@@ -65,34 +64,52 @@ export default defineComponent({
       }
     },
     showData() {
+      if (!this.isMobile()) {
+        const data = this.$refs.data as HTMLElement;
+        if (data) {
+          data.style.display = "block";
+        }
+      }
+    },
+    showDataClick() {
+      if (this.isMobile()) {
       const data = this.$refs.data as HTMLElement;
+      data.removeAttribute("style");
       if (data) {
-        data.style.display = "block";
+            data.classList.toggle("show");
+        }
       }
     },
     hideData() {
-      const data = this.$refs.data as HTMLElement;
-      if (data) {
-        data.style.display = "none";
+      if (!this.isMobile()) {
+        const data = this.$refs.data as HTMLElement;
+        if (data) {
+          data.style.display = "none";
+        }
       }
     },
     updateDataPosition(event: MouseEvent) {
-      const data = this.$refs.data as HTMLElement;
-      if (data) {
-        const x = event.pageX;
-        const y = event.pageY;
-        const width = data.offsetWidth;
-        const viewportWidth = window.innerWidth - 20; // 20 is the scrollbar width
-        let left = x - width / 2;
-        let top = y + 40;
-        if (left < 0) {
-          left = 0;
-        } else if (left + width > viewportWidth) {
-          left = viewportWidth - width;
+      if (!this.isMobile()) {
+        const data = this.$refs.data as HTMLElement;
+        if (data) {
+          const x = event.pageX;
+          const y = event.pageY;
+          const width = data.offsetWidth;
+          const viewportWidth = window.innerWidth - 20; // 20 is the scrollbar width
+          let left = x - width / 2;
+          let top = y + 40;
+          if (left < 0) {
+            left = 0;
+          } else if (left + width > viewportWidth) {
+            left = viewportWidth - width;
+          }
+          data.style.left = `${left}px`;
+          data.style.top = `${top}px`;
         }
-        data.style.left = `${left}px`;
-        data.style.top = `${top}px`;
       }
+    },
+    isMobile() {
+      return window.innerWidth < 600;
     },
   },
   data() {
@@ -130,16 +147,18 @@ a {
   cursor: none;
 }
 
-a:before{
+a:before {
   content: "";
   display: block;
   width: 100%;
   height: 3px;
-  background: linear-gradient(217deg, #26daaa, rgba(255,0,0,0) 70.71%),linear-gradient(127deg, #8dcdd8, rgba(0,255,0,0) 70.71%),linear-gradient(336deg, #FF8732, rgba(0,0,255,0) 70.71%);
+  background: linear-gradient(217deg, #26daaa, rgba(255, 0, 0, 0) 70.71%),
+    linear-gradient(127deg, #8dcdd8, rgba(0, 255, 0, 0) 70.71%),
+    linear-gradient(336deg, #ff8732, rgba(0, 0, 255, 0) 70.71%);
   position: absolute;
   left: 0;
   bottom: -3px; /* this is to match where the border is */
-  transform-origin: left; 
+  transform-origin: left;
   transform: scale(0);
   transition: 0.25s linear;
 }
@@ -175,7 +194,9 @@ h2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(217deg, #26daaa, rgba(255,0,0,0) 70.71%),linear-gradient(127deg, #8dcdd8, rgba(0,255,0,0) 70.71%),linear-gradient(336deg, #FF8732, rgba(0,0,255,0) 70.71%);
+  background: linear-gradient(217deg, #26daaa, rgba(255, 0, 0, 0) 70.71%),
+    linear-gradient(127deg, #8dcdd8, rgba(0, 255, 0, 0) 70.71%),
+    linear-gradient(336deg, #ff8732, rgba(0, 0, 255, 0) 70.71%);
   border-radius: 0.25rem;
 }
 
@@ -185,12 +206,32 @@ h2 {
   top: 0;
   left: 0;
   display: none;
-  backdrop-filter: drop-shadow(16px 16px 20px rgb(168, 255, 168)) invert(75%);
+  backdrop-filter: blur(10px);
   padding: 0.5rem;
-  border: 1px solid #ccc;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 0.5rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   z-index: 1;
-  color: black;
+  color: white;
+}
+
+@media screen and (max-width: 600px) {
+  .data {
+    display: block;
+    position: relative;
+    padding: 0;
+    width: 100%;
+    border-radius: 0;
+    overflow: hidden;
+    max-height: 0px !important;
+    transition: all 0.5s ease-out;
+  }
+
+  .data.show {
+    padding: 0.5rem;
+    height: 100% !important;
+    max-height: 1000px !important;
+    transition: all 0.5s ease-out;
+  }
 }
 </style>
