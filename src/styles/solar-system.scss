@@ -90,6 +90,8 @@ $pluto: #FF8732;
 
     // mobile 
     @media (max-width: 768px) {
+        height: $planetSize - 200px;
+        width: $planetSize - 200px;
         transform: rotate(-90deg) !important;
         bottom: 0;
         left: 50%;
