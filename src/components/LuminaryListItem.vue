@@ -216,6 +216,9 @@ h2 {
 }
 
 @media screen and (max-width: 600px) {
+  a {
+    cursor: pointer;
+  }
   .data {
     display: block;
     position: relative;
@@ -224,14 +227,16 @@ h2 {
     border-radius: 0;
     overflow: hidden;
     max-height: 0px !important;
-    transition: all 0.5s ease-out;
+    transition: max-height 0.5s ease-out;
+    transition: padding 0.1s ease-out;
   }
 
   .data.show {
     padding: 0.5rem;
     height: 100% !important;
     max-height: 1000px !important;
-    transition: all 0.5s ease-out;
+    transition: max-height 0.5s ease-out;
+    transition: padding 0.1s ease-out;
   }
 }
 </style>

@@ -39,4 +39,10 @@ export default defineComponent({
   z-index: 9999;
   pointer-events: none;
 }
+
+@media (max-width: 600px) {
+  .cursor {
+    display: none;
+  }
+}
 </style>
