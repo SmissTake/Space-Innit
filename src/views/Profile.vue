@@ -68,6 +68,13 @@ ul {
   width: clamp(300px, 80%, 800px);
 }
 
+/* onmobile */
+@media (max-width: 600px) {
+  .profil, ul {
+    width: 100%;
+  }
+}
+
 h1,
 h2 {
   text-align: center;
@@ -92,7 +99,7 @@ span {
 }
 
 a {
-  margin-top: 5em;
+  margin: 5em auto;
   display: inline-block;
   text-decoration: none;
   color: white;
