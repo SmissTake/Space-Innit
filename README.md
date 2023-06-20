@@ -1,4 +1,9 @@
-# essentials
+# ༗ - Space Innit ?
+
+Small project to discover VueJS. It use a [Solar System API](https://api.le-systeme-solaire.net/rest/bodies/) to display planets and their informations.
+The SolarSystem view is from [Jamie Coulter](https://codepen.io/jcoulterdesign/pen/ZxXbeP).
+
+The project is online at [luminaries-gt-f02a82de7535.herokuapp.com](https://luminaries-gt-f02a82de7535.herokuapp.com/)
 
 ## Project setup
 
