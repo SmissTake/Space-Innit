@@ -5,7 +5,7 @@ $planetTransitionSpeed: 2s;
 $mainPlanetViewAmount: 280; // Less means we see more of the planet at the bottom
 $globalPerspective: 800px;
 $sceneAxisTilt: -20deg;
-$menuSpacing: 40px;
+$menuSpacing: calc(10px + 2vw);
 $traverse: "";
 $traverseTriggers: "";
 
@@ -87,6 +87,32 @@ $pluto: #FF8732;
     background-size: 1140px 910px !important;
     top: auto;
     bottom: - $planetSize + $mainPlanetViewAmount;
+
+    // mobile 
+    @media (max-width: 768px) {
+        transform: rotate(-90deg) !important;
+        bottom: 0;
+        left: 50%;
+
+        & .planet_description {
+            display: none;
+        }
+
+        & .moon {
+            transform: rotate(90deg) !important;
+            height: 100px !important;
+            width: 100px !important;
+
+            h2 {
+                font-size: 20px !important;
+                top: -70px !important;
+            }
+
+            h3 {
+                display: none !important;
+            }
+        }
+    }
 
     & .moon {
         height: 200px;
@@ -238,12 +264,33 @@ body {
             }
         }
     }
+
+    // media queries
+    @media (max-width: 768px) {
+        label.menu {
+            right: clamp(90px, 5vw, 0px) !important;
+            left: auto !important;
+
+            & .preview {
+                display: none !important;
+            }
+
+            &:after {
+                display: none !important;
+            }
+
+            &::before {
+                display: none !important;
+            }
+        }
+    }
+
     label.menu {
         color: white;
         display: block;
         position: absolute;
         cursor: pointer;
-        left: 90px;
+        left: clamp(0px, 5vw, 90px);
         z-index: 2;
 
         &:after {
@@ -502,6 +549,10 @@ body {
                                     @if($a == $i) {
                                         opacity: 1;
                                         transition: all 1s 3.2s;
+
+                                        @media (max-width: 768px) {
+                                            transition: all .3s 1.5s;
+                                        }
                                     }  
                                 }
 
@@ -509,6 +560,10 @@ body {
                                     @if($a == $i) {
                                         opacity: 0.2;
                                         transition: all .6s 2.9s;
+
+                                        @media (max-width: 768px) {
+                                            transition: all .3s 1.5s;
+                                        }
                                     }  
                                 }
 
