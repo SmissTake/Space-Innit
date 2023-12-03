@@ -7,6 +7,7 @@
 // Styles
 import '@mdi/font/css/materialdesignicons.css'
 import 'vuetify/styles'
+import { md3 } from 'vuetify/blueprints'
 
 // Composables
 import { createVuetify, ThemeDefinition } from 'vuetify'
@@ -16,7 +17,7 @@ const customDark: ThemeDefinition = {
   colors: {
     background: '#000000',
     surface: '#000000',
-    primary: '#006494',
+    primary: '#FFFFFF',
     secondary: '#1B98E0',
     error: '#B00020',
     info: '#2196F3',
@@ -50,4 +51,5 @@ export default createVuetify({
       light: customLight,
     },
   },
+  blueprint: md3,
 })
